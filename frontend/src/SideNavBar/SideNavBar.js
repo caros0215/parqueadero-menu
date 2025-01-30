@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import './SideNavBar.css';
 import {
   CaretLeft,
@@ -13,10 +15,11 @@ import {
   CaretDown,
 } from 'phosphor-react';
 
-const SideNavBar  = () => {
+const SideNavBar = () => {
+  const navigate = useNavigate();
   const [activeMenu, setActiveMenu] = useState(null);
   const [sidebarActive, setSidebarActive] = useState(false);
-  const [openSubMenus, setOpenSubMenus] = useState({}); // Estado para controlar submenús abiertos
+  const [openSubMenus, setOpenSubMenus] = useState({});
 
   const handleMenuClick = (index) => {
     if (activeMenu === index) {
@@ -33,8 +36,38 @@ const SideNavBar  = () => {
   const toggleSubMenu = (index) => {
     setOpenSubMenus((prev) => ({
       ...prev,
-      [index]: !prev[index], // Alternar entre abierto y cerrado
+      [index]: !prev[index],
     }));
+  };
+
+  const handleLogout = () => {
+    Swal.fire({
+      title: '¿Cerrar sesión?',
+      text: '¿Estás seguro de que quieres cerrar la sesión?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, cerrar sesión',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Limpiar localStorage
+        localStorage.clear();
+        
+        // Mostrar mensaje de éxito
+        Swal.fire({
+          title: '¡Sesión cerrada!',
+          text: 'Has cerrado sesión exitosamente',
+          icon: 'success',
+          timer: 1500,
+          showConfirmButton: false
+        }).then(() => {
+          // Redireccionar al login
+          navigate('/');
+        });
+      }
+    });
   };
 
   return (
@@ -48,14 +81,14 @@ const SideNavBar  = () => {
             <img src="user.jpg" alt="User" />
           </div>
           <div className="user-details">
-            <p className="title">web developer</p>
-            <p className="name">John Doe</p>
+            <p className="title">parqueadro</p>
+            <p className="name">Full</p>
           </div>
         </div>
         <div className="nav">
           <div className="menu">
             <p className="title">Main</p>
-            <ul>
+            <ul className='izquierda'>
               {[
                 { icon: <HouseSimple size={20} weight="bold" />, text: 'Dashboard' },
                 {
@@ -77,20 +110,20 @@ const SideNavBar  = () => {
                   onClick={() => {
                     handleMenuClick(index);
                     if (item.subMenu) {
-                      toggleSubMenu(index); // Abrir/cerrar submenú
+                      toggleSubMenu(index);
                     }
                   }}
                 >
                   <a href="#">
                     {item.icon}
                     <span className="text">{item.text}</span>
-                    {item.subMenu && <CaretDown size={14} weight="bold" />}
+                    {item.subMenu && <CaretDown size={22} weight="bold" />}
                   </a>
                   {item.subMenu && (
                     <ul
                       className="sub-menu"
                       style={{
-                        display: openSubMenus[index] ? 'block' : 'none', // Mostrar/ocultar submenú
+                        display: openSubMenus[index] ? 'block' : 'none',
                       }}
                     >
                       {item.subMenu.map((subItem, subIndex) => (
@@ -109,7 +142,7 @@ const SideNavBar  = () => {
           <div className="menu">
             <p className="title">Settings</p>
             <ul>
-              <li>
+              <li className='izquierda'>
                 <a href="#">
                   <Gear size={20} weight="bold" />
                   <span className="text">Settings</span>
@@ -118,7 +151,7 @@ const SideNavBar  = () => {
             </ul>
           </div>
         </div>
-        <div className="menu">
+        <div className="menu3 menu">
           <p className="title">Account</p>
           <ul>
             <li>
@@ -127,8 +160,8 @@ const SideNavBar  = () => {
                 <span className="text">Help</span>
               </a>
             </li>
-            <li>
-              <a href="#">
+            <li onClick={handleLogout} style={{ cursor: 'pointer' }}>
+              <a>
                 <SignOut size={20} weight="bold" />
                 <span className="text">Logout</span>
               </a>
@@ -136,14 +169,8 @@ const SideNavBar  = () => {
           </ul>
         </div>
       </div>
-      <div className="credits">
-        <h1>
-          Fully Responsive <br />
-          Sidebar by OSC
-        </h1>
-      </div>
     </div>
   );
 };
 
-export default SideNavBar ;
+export default SideNavBar;

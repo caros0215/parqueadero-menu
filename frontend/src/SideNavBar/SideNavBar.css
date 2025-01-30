@@ -15,7 +15,7 @@ body {
 .container {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 0% !important;
   min-height: 100vh;
 }
 
@@ -26,9 +26,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background-color: #fff;
+  background-color: #031632;
   padding: 24px;
-  border-radius: 30px;
   transition: all 0.3s;
 }
 
@@ -81,7 +80,7 @@ body {
   gap: 10px;
   font-size: 14px;
   font-weight: 500;
-  color: #757575;
+  color: #ffffff;
   text-decoration: none;
   padding: 12px 8px;
   border-radius: 8px;
@@ -137,6 +136,10 @@ body {
   font-size: 14px;
 }
 
+.izquierda{
+  margin-left: -18%;
+}
+
 .menu:not(:last-child) {
   padding-bottom: 10px;
   margin-bottom: 20px;
@@ -171,6 +174,17 @@ body {
   width: 92px;
 }
 
+
+.sidebar.active .menu > ul > li > a svg:last-child {
+  position: absolute;
+  right: 8px;
+}
+
+/* Hide arrows (CaretDown) when sidebar is collapsed */
+.sidebar.active .menu > ul > li > a svg[weight="bold"]:last-child {
+  display: none;
+}
+
 .sidebar.active .menu-btn i {
   transform: rotate(180deg);
 }
@@ -188,10 +202,13 @@ body {
 }
 
 .sidebar.active .menu > ul > li > a {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-left: -61%;
+    position: relative;
+    display: flex
+;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 12px;
 }
 
 .sidebar.active .menu > ul > li > a .text {
@@ -206,6 +223,12 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.sidebar.active .menu3 {
+  margin-left: 4%;
+  margin-right: -60%;
 }
 
 .sidebar.active .menu > ul > li > a .text::after {
@@ -230,15 +253,19 @@ body {
 .sidebar.active .menu .sub-menu {
   position: absolute;
   top: 0;
-  left: 20px;
+  left: 100%;
   width: 200px;
   border-radius: 20px;
   padding: 10px 20px;
   border: 1px solid #f6f6f6;
-  background-color: #fff;
+  background-color: #2d3d54;
   box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 0;
 }
 
+.sidebar.active .izquierda {
+  margin-left: 0;
+}
 .credits {
   margin: 0 auto;
   color: #fff;
