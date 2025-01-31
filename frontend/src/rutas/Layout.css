@@ -1,0 +1,21 @@
+.layout-container {
+  display: flex;
+  height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  margin-left: 260px; /* Ancho del sidebar abierto */
+}
+
+.main-content.content-with-sidebar-closed {
+  padding-left: 6%;
+  margin-left: 49px;
+}
+
+.main-content-full {
+  width: 100%;
+  margin-left: 0;
+}

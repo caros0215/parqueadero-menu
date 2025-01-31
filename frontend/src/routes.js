@@ -1,14 +1,14 @@
 import React from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
-import Login from "./Login/LoginPage";
-// import Inicio from "./inicio/inicio";
+import Login from "./components/Login/LoginPage";
+import Inicio from "./components/Inicio/Inicio";
 
 const RoutesComponent = () => {
   return (
     <Routes>
       {/* Rutas */}
       <Route path="/" element={<Login />} /> {/* Login como ruta principal */}
-      {/* <Route path="/inicio" element={<Inicio />} /> */}
+      <Route path="/inicio" element={<Inicio />} />
       <Route path="*" element={<NoMatch />} /> {/* Corregido aquí */}
     </Routes>
   );
