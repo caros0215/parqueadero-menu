@@ -1,0 +1,156 @@
+.containerFluid1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.headerSection1 {
+  border-bottom: 3px solid #031632;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3.5rem;
+  padding: 1rem 0;
+}
+
+.title1 {
+  color: #c59951;
+    margin-left: 9%;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.btnAdd1 {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btnAdd1:hover {
+  background-color: #0b5ed7;
+}
+
+.tableWrapper1 {
+  margin-top: 12%;
+  margin-left: 5%;
+  width: 95%;
+  background: #031632;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.tableContainer1 {
+  border-radius: 4px ;
+  border: 2px solid #c59951;
+  overflow-x: auto;
+}
+
+.usersTable1 {
+  color: #c59951;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.usersTable1 th,
+.usersTable1 td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.usersTable1 thead th {
+  background-color: #031632;
+  font-weight: 600;
+}
+
+.usersTable1 tbody tr:hover {
+  background-color: #f8f9fa;
+  color: #c59951;
+}
+
+.userIcon1 {
+  color: #6c757d;
+}
+
+.statusBadge1 {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.active1 {
+  background-color: #198754;
+  color: white;
+}
+
+.inactive1 {
+  background-color: #dc3545;
+  color: white;
+}
+
+.actionButtons1 {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btnEdit1,
+.btnDelete1 {
+  border: none;
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.btnEdit1 {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.btnEdit1:hover {
+  background-color: #ffca2c;
+}
+
+.btnDelete1 {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btnDelete1:hover {
+  background-color: #bb2d3b;
+}
+
+@media (max-width: 768px) {
+  .headerSection1 {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .usersTable1 {
+    font-size: 0.875rem;
+  }
+
+  .usersTable1 th,
+  .usersTable1 td {
+    padding: 0.75rem;
+  }
+
+  .actionButtons1 {
+    flex-direction: column;
+  }
+}
+

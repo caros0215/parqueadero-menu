@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 import Login from "./components/Login/LoginPage";
 import Inicio from "./components/Inicio/Inicio";
+import Usuarios from "./components/usuarios/usuarios";
 
 const RoutesComponent = () => {
   return (
@@ -9,6 +10,7 @@ const RoutesComponent = () => {
       {/* Rutas */}
       <Route path="/" element={<Login />} /> {/* Login como ruta principal */}
       <Route path="/inicio" element={<Inicio />} />
+      <Route path="/usuarios" element={<Usuarios />} />
       <Route path="*" element={<NoMatch />} /> {/* Corregido aquí */}
     </Routes>
   );

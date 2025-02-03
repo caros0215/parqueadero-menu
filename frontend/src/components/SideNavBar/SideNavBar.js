@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import './SideNavBar.css';
+import userImageOpen from '../../assets/plantilla/logo_3.png'; 
+import userImageClosed from '../../assets/plantilla/logo_1.png';
 import {
   CaretLeft,
   HouseSimple,
@@ -37,6 +39,12 @@ const SideNavBar = ({ sidebarActive, onSidebarToggle }) => {
       ...prev,
       [index]: !prev[index],
     }));
+  };
+
+  const handleNavigation = (src) => {
+    if (src) {
+      navigate(src);
+    }
   };
 
   const handleLogout = () => {
@@ -76,20 +84,20 @@ const SideNavBar = ({ sidebarActive, onSidebarToggle }) => {
           <CaretLeft size={20} weight="bold" />
         </div>
         <div className="head">
-          <div className="user-img">
-            <img src="user.jpg" alt="User" />
+        <div className="user-img">
+            <img 
+              src={sidebarActive ? userImageOpen : userImageClosed} 
+              alt="User" 
+            />
           </div>
-          <div className="user-details">
-            <p className="title">parqueadero</p>
-            <p className="name">Full</p>
-          </div>
+        
         </div>
         <div className="nav">
           <div className="menu">
             <p className="title">Main</p>
             <ul className='izquierda'>
               {[
-                { icon: <HouseSimple size={20} weight="bold" />, text: 'Dashboard' },
+                { icon: <HouseSimple size={20} weight="bold" />, text: 'Usuarios',src: '/usuarios' },
                 {
                   icon: <User size={20} weight="bold" />,
                   text: 'Audience',
@@ -111,6 +119,7 @@ const SideNavBar = ({ sidebarActive, onSidebarToggle }) => {
                     if (item.subMenu) {
                       toggleSubMenu(index);
                     }
+                    handleNavigation(item.src);
                   }}
                 >
                   <a href="#">

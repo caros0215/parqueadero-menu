@@ -82,7 +82,7 @@ function LoginPage() {
                             type="text"
                             className="form-control custom-input"
                             id="ingUsuario"
-                            placeholder="Usuario"
+                            placeholder=""
                             value={ingUsuario}
                             onChange={(e) => setIngUsuario(e.target.value)}
                             required
@@ -94,7 +94,7 @@ function LoginPage() {
                             type="password"
                             className="form-control custom-input"
                             id="ingPassword"
-                            placeholder="Contraseña"
+                            placeholder=""
                             value={ingPassword}
                             onChange={(e) => setIngPassword(e.target.value)}
                             required

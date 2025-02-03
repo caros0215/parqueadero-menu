@@ -39,10 +39,10 @@ body {
 }
 
 .user-img {
-  width: 44px;
+  margin-bottom: 32%;
+  width: 179px;
   height: 44px;
   border-radius: 50%;
-  overflow: hidden;
 }
 
 .user-img img {
@@ -54,7 +54,7 @@ body {
 .menu .title {
   font-size: 10px;
   font-weight: 500;
-  color: #757575;
+  color: #ffffff;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
@@ -80,7 +80,7 @@ body {
   gap: 10px;
   font-size: 14px;
   font-weight: 500;
-  color: #ffffff;
+  color: #c59951!important;
   text-decoration: none;
   padding: 12px 8px;
   border-radius: 8px;
@@ -89,7 +89,7 @@ body {
 
 .menu ul li > a:hover,
 .menu ul li.active > a {
-  color: #000;
+  color: #c59951;
   background-color: #f6f6f6;
 }
 
@@ -102,6 +102,7 @@ body {
 .menu ul li .text {
   flex: 1;
 }
+
 
 .menu ul li .arrow {
   font-size: 20px; /* Tamaño de la flecha igual al de los iconos */
@@ -170,8 +171,17 @@ body {
   transition: all 0.3s;
 }
 
+.sidebar.active .user-img img {
+  margin-top: -18%;
+  margin-left: -28%;
+  padding-bottom: 4%;
+  width: 100px; /* Example: set a different width when sidebar is open */
+  height: 100px; /* Example: set a different height when sidebar is open */
+  object-fit: contain;
+}
+
 .sidebar.active {
-  width: 92px;
+  width: 100px;
 }
 
 
@@ -219,7 +229,7 @@ body {
   padding: 10px;
   border-radius: 4px;
   color: #fff;
-  background-color: #000;
+  background-color: #c59951;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s;
@@ -239,7 +249,7 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 2px;
-  background-color: #000;
+  background-color: #c59951;
   transform: rotate(45deg);
   z-index: -1;
 }
