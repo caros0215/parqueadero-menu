@@ -17,6 +17,7 @@
 }
 
 .title1 {
+  -webkit-text-stroke: 1px #031632;
   color: #c59951;
     margin-left: 9%;
     font-size: 2.5rem;
@@ -24,21 +25,28 @@
 }
 
 .btnAdd1 {
-  background-color: #0d6efd;
+  margin-left: 5%;
+  background: linear-gradient(to right, #031632, #5c5c5c, #c59951);
+  background-size: 300% 100%;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
+  animation: slideGradient 4s linear infinite;
+ }
+ 
+ @keyframes slideGradient {
+  0% { background-position: 0% 50% }
+  100% { background-position: 100% 50% }
+ }
 
 .btnAdd1:hover {
   background-color: #0b5ed7;
 }
 
 .tableWrapper1 {
-  margin-top: 12%;
+  margin-top: 5%;
   margin-left: 5%;
   width: 95%;
   background: #031632;
@@ -90,13 +98,13 @@
 }
 
 .active1 {
-  background-color: #198754;
-  color: white;
+  background-color: #c59951;
+    color: white;
 }
 
 .inactive1 {
-  background-color: #dc3545;
-  color: white;
+  background-color: #6f6f6f;
+    color: #c59951;
 }
 
 .actionButtons1 {
@@ -117,8 +125,8 @@
 }
 
 .btnEdit1 {
-  background-color: #ffc107;
-  color: #000;
+  background-color: #c59951;
+  color: #ffffff;
 }
 
 .btnEdit1:hover {
@@ -126,7 +134,7 @@
 }
 
 .btnDelete1 {
-  background-color: #dc3545;
+  background-color: #6f6f6f;
   color: white;
 }
 

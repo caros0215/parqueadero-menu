@@ -1,0 +1,169 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal.show {
+    display: block;
+    animation: fadeIn 0.3s;
+  }
+  
+  .modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+    animation: slideDown 0.3s;
+  }
+  
+  .modal-content {
+    position: relative;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-control {
+    border-bottom: 2px solid #c59951 !important;
+    color: #c59951 !important;
+    background-color: transparent !important;
+  }
+  
+  .modal-header {
+    background-color: #031632 !important;
+    color: #c59951 !important;
+    padding: 1rem;
+    border-bottom: 2px solid #c59951!important;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+  
+  .modal-body {
+    border-bottom: 2px solid #c59951 !important;
+    background-color: #031632 !important;
+    padding: 1rem!important;
+  }
+  
+  .text-muted1 {
+    color: #c59951!important;
+  }
+  
+  .modal-footer {
+    background-color: #031632 !important;
+    padding: 1rem !important;
+    border-top: 0px solid #c59951 !important;
+    border-bottom-left-radius: 0.5rem !important;
+    border-bottom-right-radius: 0.5rem !important;
+  }
+  
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1049;
+  }
+  
+  .btn-close {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideDown {
+    from { transform: translateY(-100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .form-control, .form-select {
+    height: 45px;
+    border: 1px solid #ced4da;
+    padding-left: 3rem;
+  }
+  
+  .form-control:focus, .form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+  
+  .position-absolute.top-50 {
+    z-index: 2;
+  }
+  
+  /* Floating label styles */
+  .form-group {
+    position: relative;
+  }
+  
+  .floating-label {
+    position: absolute;
+    left: 2.5rem; /* Ajustado para que no se sobreponga con el icono */
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease;
+    color: #c59951;
+    pointer-events: none;
+    font-size: 1rem;
+    z-index: 3;
+  }
+  
+  .floating-label.active {
+    left: 0;
+    top: 0;
+    font-size: 0.8rem;
+    background-color: #031632;
+    padding: 0 0.5rem;
+    transform: translateY(-50%);
+  }
+
+  .form-text {
+    color: #c59951!important;
+}
+
+.aceptar{
+    background-color: #c59951!important;
+    border: 1px solid #c59951!important;
+}
+
+.aceptar:hover{
+    background-color: #b87812!important;
+    border: 1px solid #c59951!important;
+}
+
+.form-select{
+    outline: none!important;
+    box-shadow: none!important; 
+ background-color: #031632!important; 
+ color: #c59951!important;  
+ border: 2px solid #c59951!important;
+}
+
+.imagen {
+    margin-left: 8%;
+}
+  .form-control:focus {
+    outline: none!important;
+    box-shadow: none!important; /* También puedes quitar la sombra si Bootstrap la añade */
+}
+  .form-control:focus + .floating-label,
+  .form-select:focus + .floating-label {
+    left: 0;
+    top: 0;
+    font-size: 0.8rem;
+    background-color: #031632;
+    padding: 0 0.5rem;
+    transform: translateY(-50%);
+    outline: none;
+  }

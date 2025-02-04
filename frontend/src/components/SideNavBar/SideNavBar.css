@@ -173,10 +173,10 @@ body {
 
 .sidebar.active .user-img img {
   margin-top: -18%;
-  margin-left: -28%;
+  margin-left: -17%;
   padding-bottom: 4%;
-  width: 100px; /* Example: set a different width when sidebar is open */
-  height: 100px; /* Example: set a different height when sidebar is open */
+  width: 100px;
+  height: 100px;
   object-fit: contain;
 }
 
