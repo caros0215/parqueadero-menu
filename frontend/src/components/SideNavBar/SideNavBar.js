@@ -98,6 +98,7 @@ const SideNavBar = ({ sidebarActive, onSidebarToggle }) => {
             <ul className='izquierda'>
               {[
                 { icon: <HouseSimple size={20} weight="bold" />, text: 'Usuarios',src: '/usuarios' },
+                { icon: <HouseSimple size={20} weight="bold" />, text: 'Tarifas',src: '/tarifas' },
                 {
                   icon: <User size={20} weight="bold" />,
                   text: 'Audience',

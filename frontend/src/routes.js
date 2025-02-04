@@ -3,6 +3,7 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import Login from "./components/Login/LoginPage";
 import Inicio from "./components/Inicio/Inicio";
 import Usuarios from "./components/usuarios/usuarios";
+import Tarifas from "./components/Trifas/tarifas";
 
 const RoutesComponent = () => {
   return (
@@ -11,6 +12,7 @@ const RoutesComponent = () => {
       <Route path="/" element={<Login />} /> {/* Login como ruta principal */}
       <Route path="/inicio" element={<Inicio />} />
       <Route path="/usuarios" element={<Usuarios />} />
+      <Route path="/tarifas" element={<Tarifas />} />
       <Route path="*" element={<NoMatch />} /> {/* Corregido aquí */}
     </Routes>
   );

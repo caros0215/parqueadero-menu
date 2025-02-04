@@ -1,9 +1,9 @@
 "use client"
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { User, Mail, Lock, UserCircle, Image } from 'lucide-react';
-import './user-modal.css'
+import './user-modal.css';
 
-const UserModal = ({ isOpen, onClose, user = null, onSave }) => {
+const AddUserModal = ({ isOpen, onClose }) => {
   const [focusedInputs, setFocusedInputs] = useState({
     name: false,
     email: false,
@@ -20,27 +20,7 @@ const UserModal = ({ isOpen, onClose, user = null, onSave }) => {
     file: ''
   });
 
-  const [imagePreview, setImagePreview] = useState(null);
-
-  useEffect(() => {
-    if (user) {
-      setInputValues({
-        name: user.name || '',
-        email: user.username || '',
-        password: '',
-        profile: user.profile || '',
-        file: ''
-      });
-      // Set focused states for existing values
-      setFocusedInputs({
-        name: !!user.name,
-        email: !!user.username,
-        password: false,
-        profile: !!user.profile,
-        file: false
-      });
-    }
-  }, [user]);
+  const [imagePreview, setImagePreview] = useState(null); // Estado para la URL de la imagen
 
   const handleFocus = (field) => {
     setFocusedInputs(prev => ({ ...prev, [field]: true }));
@@ -61,34 +41,29 @@ const UserModal = ({ isOpen, onClose, user = null, onSave }) => {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImagePreview(reader.result);
+        setImagePreview(reader.result); // Guardar la URL de la imagen en el estado
       };
       reader.readAsDataURL(file);
       handleChange('file', file.name);
     } else {
-      setImagePreview(null);
+      setImagePreview(null); // Limpiar la imagen si no se selecciona ninguna
       handleChange('file', '');
     }
   };
 
-  const handleSubmit = () => {
-    onSave({
-      ...inputValues,
-      id: user?.id
-    });
-    onClose();
-  };
-
   return (
     <>
-      <div className={`modal fade ${isOpen ? 'show' : ''}`} 
-        style={{ display: isOpen ? 'block' : 'none', zIndex: 1050 }}>
+      <div 
+        className={`modal fade ${isOpen ? 'show' : ''}`} 
+        style={{ 
+          display: isOpen ? 'block' : 'none',
+          zIndex: 1050 
+        }}
+      >
         <div className="modal-dialog" style={{ position: 'relative', zIndex: 1052 }}>
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">
-                {user ? 'Editar usuario' : 'Agregar usuario'}
-              </h5>
+              <h5 className="modal-title">Agregar usuario</h5>
               <button type="button" className="btn-close" onClick={onClose}></button>
             </div>
             <div className="modal-body">
@@ -138,7 +113,6 @@ const UserModal = ({ isOpen, onClose, user = null, onSave }) => {
                     onBlur={() => handleBlur('password')}
                     onChange={(e) => handleChange('password', e.target.value)}
                     value={inputValues.password}
-                    placeholder={user ? '(Sin cambios)' : ''}
                   />
                   <label className={`floating-label ${focusedInputs.password || inputValues.password ? 'active' : ''}`}>
                     Contraseña
@@ -157,8 +131,6 @@ const UserModal = ({ isOpen, onClose, user = null, onSave }) => {
                     value={inputValues.profile}
                   >
                     <option value="">Seleccionar perfil</option>
-                    <option value="Administrador">Administrador</option>
-                    <option value="Usuario">Usuario</option>
                   </select>
                 </div>
 
@@ -184,19 +156,20 @@ const UserModal = ({ isOpen, onClose, user = null, onSave }) => {
               </form>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" onClick={onClose}>
-                Salir
-              </button>
-              <button type="button" className="aceptar btn btn-primary" onClick={handleSubmit}>
-                {user ? 'Actualizar usuario' : 'Guardar usuario'}
-              </button>
+              <button type="button" className="btn btn-secondary" onClick={onClose}>Salir</button>
+              <button type="button" className="aceptar btn btn-primary">Guardar usuario</button>
             </div>
           </div>
         </div>
       </div>
-      {isOpen && <div className="modal-backdrop fade show" style={{ zIndex: 1049 }}></div>}
+      {isOpen && (
+        <div 
+          className="modal-backdrop fade show" 
+          style={{ zIndex: 1049 }}
+        ></div>
+      )}
     </>
   );
 };
 
-export default UserModal;
+export default AddUserModal;
